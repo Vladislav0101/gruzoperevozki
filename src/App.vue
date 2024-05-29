@@ -3,6 +3,7 @@ import Header from '@/components/VHeader.vue'
 import Services from '@/components/Services/ServicesMain.vue'
 import Prices from '@/components/Prices/PricesMain.vue'
 import Advantages from '@/components/Advantages/AdvantagesMain.vue'
+import Contacts from '@/components/Contacts/ContactsMain.vue'
 </script>
 
 <template>
@@ -14,6 +15,8 @@ import Advantages from '@/components/Advantages/AdvantagesMain.vue'
     <Prices />
 
     <Advantages />
+
+    <Contacts />
   </main>
 </template>
 
