@@ -1,5 +1,5 @@
 <template>
-  <div :class="[$style.container, $style.services]">Услуги</div>
+  <div id="services" :class="[$style.container, $style.services]">Услуги</div>
 </template>
 
 <style lang="scss" module>
