@@ -14,7 +14,7 @@ const props = defineProps({
   },
   color: {
     type: String,
-    default: 'cultured'
+    default: 'wetAsphalt'
   },
   weight: {
     type: String,
@@ -44,11 +44,31 @@ const props = defineProps({
   font-size: 16px;
 }
 
+.sm {
+  font-size: 18px;
+}
+
+.l {
+  font-size: 20px;
+}
+
 .xl {
   font-size: 24px;
 }
 
-.logo {
+.s28 {
+  font-size: 28px;
+}
+
+.xxl {
+  font-size: 32px;
+}
+
+.xxxl {
+  font-size: 38px;
+}
+
+.large {
   font-size: 48px;
 }
 

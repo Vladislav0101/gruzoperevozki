@@ -6,7 +6,6 @@
 @import url('@/assets/common.scss');
 
 .services {
-  background-color: #f39c12;
   height: 800px;
 }
 </style>

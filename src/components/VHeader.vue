@@ -9,19 +9,19 @@ const isSimplifiedHeader = ref(false)
 const navButtons = [
   {
     label: 'Услуги',
-    anchor: '#services'
+    id: 'services'
   },
   {
     label: 'Цены',
-    anchor: '#prices'
+    id: 'prices'
   },
   {
     label: 'Преимущества',
-    anchor: '#advantages'
+    id: 'advantages'
   },
   {
     label: 'Контакты',
-    anchor: '#contacts'
+    id: 'contacts'
   }
 ]
 
@@ -31,8 +31,10 @@ const subscribeHeaderScroll = () => {
   isSimplifiedHeader.value = scrollY > 0
 }
 
-const scrollTo = (anchor) => {
-  document.querySelector(anchor).scrollIntoView({ behavior: 'smooth' })
+const scrollTo = (id) => {
+  const scrollToY = document.getElementById(id).offsetTop - 100
+  window.scrollTo({ top: scrollToY, behavior: 'smooth' })
+  // document.querySelector(anchor).scrollIntoView({ behavior: 'smooth' })
 }
 
 // TODO: добавить подсвечивание текующего блока
@@ -64,12 +66,21 @@ onUnmounted(() => {
 <template>
   <header :class="isSimplifiedHeader && $style.simplifiedHeader" ref="header">
     <div :class="[$style.container, $style.headerBox]">
-      <VTypography size="logo" weight="bold" :class="$style.logo">Dima Vozit</VTypography>
+      <VTypography
+        tag="h1"
+        size="large"
+        weight="bold"
+        font="merriweather"
+        color="cultured"
+        :class="$style.logo"
+      >
+        Dima Vozit
+      </VTypography>
 
       <nav>
         <ul>
-          <li v-for="button of navButtons" :key="button.anchor">
-            <VTypography size="xl" @click="scrollTo(button.anchor)">
+          <li v-for="button of navButtons" :key="button.id">
+            <VTypography size="l" font="merriweather" color="cultured" @click="scrollTo(button.id)">
               {{ button.label }}
             </VTypography>
           </li>
@@ -93,7 +104,9 @@ header {
 
 .simplifiedHeader {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 999;
 }
 
@@ -113,7 +126,7 @@ header {
 
       li {
         cursor: pointer;
-        margin: 0 40px;
+        margin: 0 35px;
         transition: all 0.5s linear;
 
         :hover {
