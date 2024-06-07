@@ -1,49 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-$font-Merriweather: 'Merriweather', serif;
-
-.merriweather-regular {
-  font-family: $font-Merriweather;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.merriweather-bold {
-  font-family: $font-Merriweather;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.merriweather-black {
-  font-family: $font-Merriweather;
-  font-weight: 900;
-  font-style: normal;
-}
-
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
-$font-PT-Sans: 'PT Sans', sans-serif;
-
-.pt-sans-regular {
-  font-family: $font-PT-Sans;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.pt-sans-bold {
-  font-family: $font-PT-Sans;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.pt-sans-regular-italic {
-  font-family: $font-PT-Sans;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.pt-sans-bold-italic {
-  font-family: $font-PT-Sans;
-  font-weight: 700;
-  font-style: italic;
+* {
+  font-family: 'Montserrat', sans-serif;
 }

@@ -1,26 +1,27 @@
 <script setup>
-import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 
 import VTypography from '@/components/Common/VTypography.vue'
+import VButton from '@/components/Common/VButton.vue'
 
 const header = ref()
 const isSimplifiedHeader = ref(false)
 
 const navButtons = [
   {
-    label: 'Услуги',
+    label: 'УСЛУГИ',
     id: 'services'
   },
   {
-    label: 'Цены',
+    label: 'ЦЕНЫ',
     id: 'prices'
   },
   {
-    label: 'Преимущества',
+    label: 'ПРЕИМУЩЕСТВА',
     id: 'advantages'
   },
   {
-    label: 'Контакты',
+    label: 'КОНТАКТЫ',
     id: 'contacts'
   }
 ]
@@ -64,43 +65,55 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <header :class="isSimplifiedHeader && $style.simplifiedHeader" ref="header">
-    <div :class="[$style.container, $style.headerBox]">
-      <VTypography
-        tag="h1"
-        size="large"
-        weight="bold"
-        font="merriweather"
-        color="cultured"
-        :class="$style.logo"
-      >
-        Dima Vozit
-      </VTypography>
+  <div :class="$style.headerBox">
+    <div :class="$style.container">
+      <header :class="[isSimplifiedHeader && $style.simplifiedHeader]" ref="header">
+        <div :class="$style.logo">
+          <img src="../assets/images/logo.svg" alt="logo" />
+        </div>
 
-      <nav>
-        <ul>
-          <li v-for="button of navButtons" :key="button.id">
-            <VTypography size="l" font="merriweather" color="cultured" @click="scrollTo(button.id)">
-              {{ button.label }}
-            </VTypography>
-          </li>
-        </ul>
-      </nav>
+        <nav>
+          <ul>
+            <li v-for="button of navButtons" :key="button.id">
+              <VTypography size="l" color="cultured" @click="scrollTo(button.id)">
+                {{ button.label }}
+              </VTypography>
+            </li>
+          </ul>
+        </nav>
+
+        <div :class="$style.contact">
+          <a href="tel:+37291234567">
+            <VTypography size="l" color="cultured"> +375 (29) 123-45-67 </VTypography>
+          </a>
+          <img src="../assets/images/phone.svg" alt="phone" />
+        </div>
+      </header>
+
+      <div :class="$style.preview">
+        <div :class="$style.title">
+          <VTypography :class="$style.mainQuote" weight="medium" color="orange">
+            Ваш груз – наша забота
+          </VTypography>
+          <VTypography weight="light" color="cultured" size="s28">
+            грузоперевозки, которым можно доверять
+          </VTypography>
+        </div>
+
+        <div :class="$style.order">
+          <VButton type="empty">ЗАКАЗАТЬ</VButton>
+        </div>
+      </div>
     </div>
-  </header>
+  </div>
 
-  <div v-if="isSimplifiedHeader" :class="$style.headerCap"></div>
+  <!-- <div v-if="isSimplifiedHeader" :class="$style.headerCap"></div> -->
 </template>
 
 <style lang="scss" module>
 @import '@/assets/common.scss';
 
 $header-height: 100px;
-
-header {
-  position: relative;
-  transition: all 0.15s linear;
-}
 
 .simplifiedHeader {
   position: fixed;
@@ -111,33 +124,86 @@ header {
 }
 
 .headerBox {
-  align-items: center;
-  display: grid;
-  grid-template-columns: repeat(2, max-content);
-  justify-content: space-between;
-  height: $header-height;
-  background-color: #34495e;
+  background-image: url(../assets/images/main-back.png);
+  background-repeat: no-repeat;
+  background-position: 70%;
+  background-size: cover;
 
-  nav {
-    ul {
-      display: grid;
-      grid-template-columns: repeat(4, auto);
-      justify-content: space-around;
+  header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    height: $header-height;
+    position: relative;
+    transition: all 0.15s linear;
 
-      li {
-        cursor: pointer;
-        margin: 0 35px;
-        transition: all 0.5s linear;
+    .logo {
+      img {
+        width: 250px;
+      }
+    }
 
-        :hover {
-          color: $color-orange;
+    nav {
+      ul {
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        justify-content: space-around;
+
+        li {
+          cursor: pointer;
+          margin: 0 20px;
+          transition: all 0.5s linear;
+
+          :hover {
+            text-decoration: underline;
+          }
         }
       }
+    }
+
+    .contact {
+      align-items: center;
+      display: flex;
+      gap: 10px;
+      transition: all 0.5s linear;
+
+      :hover {
+        text-decoration: underline;
+      }
+
+      img {
+        width: 20px;
+      }
+    }
+  }
+
+  .preview {
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: max-content auto;
+    min-height: 50vh;
+
+    .title {
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+      justify-content: center;
+
+      .mainQuote {
+        font-size: 60px;
+      }
+    }
+
+    .order {
+      display: flex;
+      align-items: end;
+      margin-bottom: 10vh;
+      position: relative;
     }
   }
 }
 
-.headerCap {
-  height: $header-height;
-}
+// .headerCap {
+//   height: $header-height;
+// }
 </style>

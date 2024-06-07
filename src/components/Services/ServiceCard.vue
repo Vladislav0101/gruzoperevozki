@@ -6,8 +6,8 @@ import VButton from '@/components/Common/VButton.vue'
 <template>
   <div :class="$style.serviceCard">
     <div :class="$style.header">
-      <VTypography :class="$style.title" size="s28" weight="bold">
-        <slot name="title"></slot>
+      <VTypography :class="$style.title" color="cultured" size="s28" weight="bold">
+        <slot name="title" />
       </VTypography>
 
       <VButton>
@@ -15,7 +15,14 @@ import VButton from '@/components/Common/VButton.vue'
       </VButton>
     </div>
 
-    <VTypography :class="$style.description"><slot name="description"></slot></VTypography>
+    <VTypography :class="$style.description" color="cultured">
+      <slot name="description" />
+    </VTypography>
+
+    <div :class="$style.price">
+      <VTypography color="orange" weight="bold">Стоимость:</VTypography>
+      <VTypography color="cultured" size="sm" weight="bold"><slot name="price" /></VTypography>
+    </div>
 
     <div :class="$style.image">
       <slot name="image" />
@@ -28,11 +35,8 @@ import VButton from '@/components/Common/VButton.vue'
 
 .serviceCard {
   display: grid;
-  background-color: $color-cultured;
-  border-radius: 10px;
-  box-shadow: 0 0 12px 4px #f0f3f447;
+  background-color: $color-wet-asphalt;
   max-width: 500px;
-  padding: 20px;
   transition: all 0.1s linear;
 
   &:hover {
@@ -45,21 +49,26 @@ import VButton from '@/components/Common/VButton.vue'
     display: grid;
     gap: 40px;
     grid-template-columns: auto max-content;
+    padding: 30px 30px 15px 30px;
     justify-content: space-between;
-    margin-bottom: 10px;
-
-    .title {
-    }
   }
 
   .description {
-    margin-bottom: 15px;
+    padding: 0 30px 15px 30px;
+  }
+
+  .price {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    padding: 0 30px 20px 30px;
   }
 
   .image {
     img {
-      border-radius: 3px;
       width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 }

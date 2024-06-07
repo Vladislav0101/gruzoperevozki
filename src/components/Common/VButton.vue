@@ -1,12 +1,8 @@
 <script setup>
 defineProps({
-  color: {
+  type: {
     type: String,
-    default: 'orange'
-  },
-  size: {
-    type: String,
-    default: 'medium'
+    default: 'main'
   },
   animated: {
     type: Boolean,
@@ -17,15 +13,15 @@ defineProps({
 
 <template>
   <div :class="$style.buttonBox">
-    <button :class="[$style[color], $style[size]]"><slot /></button>
-    <div :class="$style.shadowBox"></div>
+    <button :class="[$style[type]]"><slot /></button>
+    <div :class="[$style.shadowBox, animated && $style.animated]"></div>
   </div>
 </template>
 
 <style lang="scss" module>
 @import '@/assets/common.scss';
 
-@keyframes animationTo {
+@keyframes mainAnimation {
   from {
     inset: 0;
     box-shadow: 0 0 0 0 #f39c12;
@@ -36,21 +32,20 @@ defineProps({
   }
 }
 
-@keyframes animationFrom {
+@keyframes emptyAnimation {
   from {
-    inset: -4px;
-    box-shadow: 0 0 5px 2px $color-orange;
     inset: 0;
-    box-shadow: 0 0 0 0 #f39c12;
+    box-shadow: 0 0 0 0 $color-orange;
   }
   to {
     inset: 0;
-    box-shadow: 0 0 0 0 #f39c12;
+    box-shadow: 0 0 15px 8px $color-orange;
   }
 }
 
 .buttonBox {
   position: relative;
+  width: max-content;
 }
 
 button {
@@ -58,6 +53,7 @@ button {
   outline: none;
   position: relative;
   z-index: 1;
+  width: 100%;
 }
 
 button:hover + .shadowBox {
@@ -65,31 +61,30 @@ button:hover + .shadowBox {
 }
 
 .shadowBox {
-  animation: animationTo 0.6s ease-in-out infinite alternate;
   background-color: $color-orange;
   border-radius: 4px;
   position: absolute;
-  // inset: 0;
   transition: all 1s linear;
   opacity: 0.4;
 }
 
-// sizes
-.medium {
-  border-radius: 4px;
-  padding: 5px 10px;
+.main {
 }
 
-// background-colors
-.wetAsphalt {
-  background-color: $color-wet-asphalt;
+.main + .animated {
+  animation: mainAnimation 0.6s ease-in-out infinite alternate;
 }
 
-.cultured {
-  background-color: $color-cultured;
-}
+.empty {
+  font-size: 30px;
+  padding: 10px 20px;
+  background-color: unset;
+  border: 1px solid $color-orange;
+  color: $color-cultured;
+  transition: all 0.1s linear;
 
-.orange {
-  background-color: $color-orange;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 </style>

@@ -9,34 +9,37 @@ const services = [
        эффективное и безопасное решение для транспортировки вашего груза. 
        Гидроборт — это гидравлическая платформа, установленная на задней части грузового 
        автомобиля, которая позволяет легко загружать и выгружать тяжелые или громоздкие грузы.`,
-    imageSrc: '/src/assets/images/gidrobort.jpg'
+    imageSrc: '/src/assets/images/gidrobort.jpg',
+    price: 'от 50 р/ч'
   },
   {
     title: 'Грузоперевозки Минск - Москва',
     description: `Предлагаем надежные грузоперевозки Минск-Москва. 
     Быстрая доставка, выгодные тарифы, полный спектр логистических услуг. 
     Обеспечим сохранность вашего груза и доставим его точно в срок!`,
-    imageSrc: '/src/assets/images/gruzoperevozki.jpeg'
+    imageSrc: '/src/assets/images/gruzoperevozki.jpeg',
+    price: 'уточняйте у оператора'
   }
 ]
 </script>
 
 <template>
-  <div id="services" :class="[$style.container, $style.servicesBox]">
-    <div :class="$style.titleBox">
-      <VTypography size="xxl" color="cultured" font="merriweather" weight="bold">
-        Услуги
-      </VTypography>
-    </div>
+  <div id="services" :class="$style.servicesBox">
+    <div :class="$style.container">
+      <div :class="$style.titleBox">
+        <VTypography size="xxl" weight="bold"> Услуги </VTypography>
+      </div>
 
-    <div :class="$style.services">
-      <ServiceCard v-for="service of services" :key="service.title">
-        <template #title>{{ service.title }}</template>
-        <template #description>{{ service.description }}</template>
-        <template #image>
-          <img :src="service.imageSrc" :alt="title" />
-        </template>
-      </ServiceCard>
+      <div :class="$style.services">
+        <ServiceCard v-for="service of services" :key="service.title">
+          <template #title>{{ service.title }}</template>
+          <template #price>{{ service.price }}</template>
+          <template #description>{{ service.description }}</template>
+          <template #image>
+            <img :src="service.imageSrc" :alt="title" />
+          </template>
+        </ServiceCard>
+      </div>
     </div>
   </div>
 </template>
@@ -45,8 +48,12 @@ const services = [
 @import '@/assets/common.scss';
 
 .servicesBox {
+  background-color: $color-cultured;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
   .titleBox {
-    padding-bottom: 40px;
+    margin-bottom: 40px;
   }
 
   .services {

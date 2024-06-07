@@ -5,15 +5,10 @@ import VTypography from '@/components/Common/VTypography.vue'
 <template>
   <div :class="[$style.container, $style.preview]">
     <div :class="$style.title">
-      <VTypography color="orange" font="merriweather" size="large">
-        Мы знаем, как важен ваш груз:
-      </VTypography>
+      <VTypography color="orange" size="large"> Мы знаем, как важен ваш груз: </VTypography>
       <VTypography color="cultured" size="xxl">
         грузоперевозки, которым можно доверять
       </VTypography>
-    </div>
-    <div :class="$style.image">
-      <img src="../../assets/images/main-image.png" alt="" />
     </div>
   </div>
 </template>
@@ -30,16 +25,6 @@ import VTypography from '@/components/Common/VTypography.vue'
   .title {
     display: grid;
     gap: 20px;
-  }
-
-  .image {
-    display: flex;
-    justify-content: center;
-
-    img {
-      max-width: 400px;
-      width: 100%;
-    }
   }
 }
 </style>

@@ -8,10 +8,6 @@ const props = defineProps({
     type: String,
     default: 'm'
   },
-  font: {
-    type: String,
-    default: 'ptSans'
-  },
   color: {
     type: String,
     default: 'wetAsphalt'
@@ -24,10 +20,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <component
-    :class="[$style.text, $style[size], $style[font], $style[color], $style[weight]]"
-    :is="props.tag"
-  >
+  <component :class="[$style.text, $style[size], $style[color], $style[weight]]" :is="props.tag">
     <slot />
   </component>
 </template>
@@ -72,15 +65,6 @@ const props = defineProps({
   font-size: 48px;
 }
 
-// fonts
-.merriweather {
-  font-family: 'Merriweather', serif;
-}
-
-.ptSans {
-  font-family: 'PT Sans', sans-serif;
-}
-
 // colors
 .wetAsphalt {
   color: $color-wet-asphalt;
@@ -95,8 +79,16 @@ const props = defineProps({
 }
 
 // font-weights
+.light {
+  font-weight: 300;
+}
+
 .regular {
   font-weight: 400;
+}
+
+.medium {
+  font-weight: 500;
 }
 
 .bold {
