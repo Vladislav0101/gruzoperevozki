@@ -90,18 +90,20 @@ onUnmounted(() => {
         </div>
       </header>
 
-      <div :class="$style.preview">
-        <div :class="$style.title">
-          <VTypography :class="$style.mainQuote" weight="medium" color="orange">
-            Ваш груз – наша забота
-          </VTypography>
-          <VTypography weight="light" color="cultured" size="s28">
-            грузоперевозки, которым можно доверять
-          </VTypography>
-        </div>
+      <div>
+        <div :class="$style.preview">
+          <div :class="$style.title">
+            <VTypography size="headline" weight="medium" color="orange">
+              Ваш груз – наша забота
+            </VTypography>
+            <VTypography weight="light" color="cultured" size="s28">
+              грузоперевозки, которым можно доверять
+            </VTypography>
+          </div>
 
-        <div :class="$style.order">
-          <VButton type="empty">ЗАКАЗАТЬ</VButton>
+          <div :class="$style.order">
+            <VButton type="empty">ЗАКАЗАТЬ</VButton>
+          </div>
         </div>
       </div>
     </div>
@@ -128,6 +130,11 @@ $header-height: 100px;
   background-repeat: no-repeat;
   background-position: 70%;
   background-size: cover;
+
+  .container {
+    display: grid;
+    min-height: 60vh;
+  }
 
   header {
     align-items: center;
@@ -181,23 +188,17 @@ $header-height: 100px;
     display: grid;
     justify-content: space-between;
     grid-template-columns: max-content auto;
-    min-height: 50vh;
 
     .title {
       display: flex;
       gap: 10px;
       flex-direction: column;
       justify-content: center;
-
-      .mainQuote {
-        font-size: 60px;
-      }
     }
 
     .order {
       display: flex;
       align-items: end;
-      margin-bottom: 10vh;
       position: relative;
     }
   }

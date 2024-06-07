@@ -65,6 +65,14 @@ const props = defineProps({
   font-size: 48px;
 }
 
+.s50 {
+  font-size: 50px;
+}
+
+.headline {
+  font-size: 60px;
+}
+
 // colors
 .wetAsphalt {
   color: $color-wet-asphalt;
