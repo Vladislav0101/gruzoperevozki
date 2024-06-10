@@ -26,7 +26,7 @@ const advantagesDict = [
 <template>
   <div id="advantages" :class="[$style.container, $style.advantages]">
     <div :class="$style.title">
-      <VTypography size="headline" weight="medium">ПОЧЕМУ МЫ?</VTypography>
+      <VTypography size="s50" weight="medium">ПОЧЕМУ МЫ?</VTypography>
       <VUnderline />
     </div>
 
@@ -44,7 +44,7 @@ const advantagesDict = [
 @import '@/assets/common.scss';
 
 .advantages {
-  padding: 80px 40px;
+  padding: 100px 40px;
 
   .title {
     margin: auto;

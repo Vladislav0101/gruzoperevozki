@@ -1,24 +1,23 @@
 <script setup>
-import ServiceCard from '@/components/Services/ServiceCard.vue'
 import VTypography from '@/components/Common/VTypography.vue'
+import VUnderline from '@/components/Common/VUnderline.vue'
+
+import ServiceCard from '@/components/Services/ServiceCard.vue'
+import GidrobortPrice from '@/components/Services/ServicePrice/Gidrobort.vue'
+import CountriesPrice from '@/components/Services/ServicePrice/Countries.vue'
 
 const services = [
   {
     title: 'Гидроборт',
-    description: `Использование гидроборта предоставляет
-       эффективное и безопасное решение для транспортировки вашего груза. 
-       Гидроборт — это гидравлическая платформа, установленная на задней части грузового 
-       автомобиля, которая позволяет легко загружать и выгружать тяжелые или громоздкие грузы.`,
+    description: `Гидроборт обеспечивает безопасную и быструю погрузку и разгрузку грузов различной тяжести.`,
     imageSrc: '/src/assets/images/gidrobort.jpg',
-    price: 'от 50 р/ч'
+    priceComponent: GidrobortPrice
   },
   {
-    title: 'Грузоперевозки Минск - Москва',
-    description: `Предлагаем надежные грузоперевозки Минск-Москва. 
-    Быстрая доставка, выгодные тарифы, полный спектр логистических услуг. 
-    Обеспечим сохранность вашего груза и доставим его точно в срок!`,
+    title: `Грузоперевозки <br/> Беларусь - Россия`,
+    description: `Мы предоставляем надежные и своевременные грузоперевозки по маршруту Минск-Москва.`,
     imageSrc: '/src/assets/images/gruzoperevozki.jpeg',
-    price: 'уточняйте у оператора'
+    priceComponent: CountriesPrice
   }
 ]
 </script>
@@ -27,13 +26,20 @@ const services = [
   <div id="services" :class="$style.servicesBox">
     <div :class="$style.container">
       <div :class="$style.titleBox">
-        <VTypography size="xxl" weight="bold"> Услуги </VTypography>
+        <div :class="$style.title">
+          <VTypography size="s50" weight="medium">УСЛУГИ</VTypography>
+          <VUnderline :centering="'left'" />
+        </div>
+
+        <VTypography :class="$style.description">
+          Мы предоставляем профессиональное обслуживание и поддержку по транспортировке вашего груза
+          по всей территории Беларуси и России.
+        </VTypography>
       </div>
 
       <div :class="$style.services">
-        <ServiceCard v-for="service of services" :key="service.title">
-          <template #title>{{ service.title }}</template>
-          <template #price>{{ service.price }}</template>
+        <ServiceCard v-for="service of services" :key="service.title" :title="service.title">
+          <template #price><component :is="service.priceComponent" /></template>
           <template #description>{{ service.description }}</template>
           <template #image>
             <img :src="service.imageSrc" :alt="title" />
@@ -48,19 +54,32 @@ const services = [
 @import '@/assets/common.scss';
 
 .servicesBox {
-  background-color: $color-cultured;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 
-  .titleBox {
-    margin-bottom: 40px;
-  }
-
-  .services {
+  .container {
     display: grid;
-    gap: 60px;
-    grid-template-columns: 1fr 1fr;
-    justify-items: center;
+    grid-template-columns: 35% 65%;
+
+    .titleBox {
+      margin-bottom: 40px;
+
+      .title {
+        width: max-content;
+      }
+
+      .description {
+        line-height: 22px;
+        max-width: 300px;
+        margin-top: 30px;
+      }
+    }
+
+    .services {
+      display: grid;
+      gap: 60px;
+      grid-template-columns: 1fr 1fr;
+    }
   }
 }
 </style>

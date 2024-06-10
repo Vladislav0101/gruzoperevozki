@@ -1,6 +1,8 @@
 <script setup>
 import { onMounted, onUnmounted, ref } from 'vue'
 
+import scrollTo from '@/utils/scrollTo.js'
+
 import VTypography from '@/components/Common/VTypography.vue'
 import VButton from '@/components/Common/VButton.vue'
 
@@ -30,12 +32,6 @@ const subscribeHeaderScroll = () => {
   const { scrollY } = window
 
   isSimplifiedHeader.value = scrollY > 0
-}
-
-const scrollTo = (id) => {
-  const scrollToY = document.getElementById(id).offsetTop - 100
-  window.scrollTo({ top: scrollToY, behavior: 'smooth' })
-  // document.querySelector(anchor).scrollIntoView({ behavior: 'smooth' })
 }
 
 // TODO: добавить подсвечивание текующего блока
@@ -102,7 +98,7 @@ onUnmounted(() => {
           </div>
 
           <div :class="$style.order">
-            <VButton type="empty">ЗАКАЗАТЬ</VButton>
+            <VButton type="empty" @click="scrollTo('contacts')">ЗАКАЗАТЬ</VButton>
           </div>
         </div>
       </div>
@@ -133,7 +129,7 @@ $header-height: 100px;
 
   .container {
     display: grid;
-    min-height: 60vh;
+    min-height: 70vh;
   }
 
   header {

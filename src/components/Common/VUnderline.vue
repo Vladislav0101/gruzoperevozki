@@ -14,7 +14,7 @@ defineProps({
 <style lang="scss" module>
 @import '@/assets/common.scss';
 
-$commonLineGap: 50px;
+$commonLineGap: 30px;
 
 .line {
   background-color: $color-orange;

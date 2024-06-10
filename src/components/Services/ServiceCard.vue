@@ -1,31 +1,39 @@
 <script setup>
+import xss from 'xss'
+
+import scrollTo from '@/utils/scrollTo.js'
+
 import VTypography from '@/components/Common/VTypography.vue'
 import VButton from '@/components/Common/VButton.vue'
+
+defineProps({
+  title: {
+    type: String,
+    default: ''
+  }
+})
 </script>
 
 <template>
   <div :class="$style.serviceCard">
-    <div :class="$style.header">
-      <VTypography :class="$style.title" color="cultured" size="s28" weight="bold">
-        <slot name="title" />
-      </VTypography>
-
-      <VButton>
-        <VTypography size="sm" color="cultured">Заказать услугу</VTypography>
-      </VButton>
-    </div>
-
-    <VTypography :class="$style.description" color="cultured">
-      <slot name="description" />
-    </VTypography>
-
-    <div :class="$style.price">
-      <VTypography color="orange" weight="bold">Стоимость:</VTypography>
-      <VTypography color="cultured" size="sm" weight="bold"><slot name="price" /></VTypography>
-    </div>
-
     <div :class="$style.image">
       <slot name="image" />
+    </div>
+
+    <div :class="$style.info">
+      <div :class="$style.text">
+        <VTypography :class="$style.title" size="xl" weight="semiBold" v-html="xss(title)" />
+
+        <slot name="price" />
+
+        <VTypography>
+          <slot name="description" />
+        </VTypography>
+      </div>
+
+      <VButton>
+        <VTypography size="sm" color="cultured" @click="scrollTo('contacts')">ЗАКАЗАТЬ</VTypography>
+      </VButton>
     </div>
   </div>
 </template>
@@ -34,27 +42,24 @@ import VButton from '@/components/Common/VButton.vue'
 @import '@/assets/common.scss';
 
 .serviceCard {
+  background-color: $color-light-grey;
   display: grid;
-  background-color: $color-wet-asphalt;
-  max-width: 500px;
+  grid-template-rows: max-content auto;
+  overflow: hidden;
   transition: all 0.1s linear;
 
-  &:hover {
-    transform: scale(1.02);
-    box-shadow: none;
-  }
-
-  .header {
-    align-items: start;
-    display: grid;
+  .info {
+    align-items: end;
+    display: flex;
     gap: 40px;
-    grid-template-columns: auto max-content;
-    padding: 30px 30px 15px 30px;
+    flex-direction: column;
+    padding: 30px 30px 30px 30px;
     justify-content: space-between;
-  }
 
-  .description {
-    padding: 0 30px 15px 30px;
+    .text {
+      display: grid;
+      gap: 10px;
+    }
   }
 
   .price {
@@ -65,10 +70,12 @@ import VButton from '@/components/Common/VButton.vue'
   }
 
   .image {
+    height: 300px;
+
     img {
-      width: 100%;
-      height: 100%;
       object-fit: cover;
+      height: 100%;
+      width: 100%;
     }
   }
 }

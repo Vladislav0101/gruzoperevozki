@@ -2,7 +2,7 @@
 import Header from '@/components/VHeader.vue'
 
 import Services from '@/components/Services/ServicesMain.vue'
-// import Prices from '@/components/Prices/PricesMain.vue'
+import Prices from '@/components/Prices/PricesMain.vue'
 import Advantages from '@/components/Advantages/AdvantagesMain.vue'
 import Contacts from '@/components/Contacts/ContactsMain.vue'
 </script>
@@ -13,7 +13,7 @@ import Contacts from '@/components/Contacts/ContactsMain.vue'
   <main>
     <Services />
 
-    <!-- <Prices /> -->
+    <Prices />
 
     <Advantages />
 
@@ -30,7 +30,7 @@ main {
   .dividerAdvantagesContacts {
     background-color: $color-wet-asphalt;
     border: 0;
-    height: 2px;
+    height: 1px;
     width: 100%;
   }
 }

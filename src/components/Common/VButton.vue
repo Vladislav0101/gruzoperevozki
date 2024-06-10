@@ -54,6 +54,10 @@ button {
   position: relative;
   z-index: 1;
   width: 100%;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 button:hover + .shadowBox {
@@ -69,6 +73,11 @@ button:hover + .shadowBox {
 }
 
 .main {
+  background-color: $color-orange;
+  color: $color-cultured;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .main + .animated {
@@ -76,7 +85,7 @@ button:hover + .shadowBox {
 }
 
 .empty {
-  font-size: 30px;
+  font-size: 24px;
   padding: 10px 20px;
   background-color: unset;
   border: 1px solid $color-orange;

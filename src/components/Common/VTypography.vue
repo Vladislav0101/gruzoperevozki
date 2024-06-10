@@ -33,6 +33,10 @@ const props = defineProps({
   font-size: 12px;
 }
 
+.xxs {
+  font-size: 14px;
+}
+
 .m {
   font-size: 16px;
 }
@@ -61,6 +65,10 @@ const props = defineProps({
   font-size: 38px;
 }
 
+.s40 {
+  font-size: 40px;
+}
+
 .large {
   font-size: 48px;
 }
@@ -87,6 +95,14 @@ const props = defineProps({
 }
 
 // font-weights
+.thin {
+  font-weight: 100;
+}
+
+.extraLight {
+  font-weight: 200;
+}
+
 .light {
   font-weight: 300;
 }
@@ -97,6 +113,10 @@ const props = defineProps({
 
 .medium {
   font-weight: 500;
+}
+
+.semiBold {
+  font-weight: 600;
 }
 
 .bold {
