@@ -6,8 +6,8 @@ import ServiceCard from '@/components/Services/ServiceCard.vue'
 import GidrobortPrice from '@/components/Services/ServicePrice/Gidrobort.vue'
 import CountriesPrice from '@/components/Services/ServicePrice/Countries.vue'
 
-import gidrobortImage from '@/assets/images/gidrobort.jpg'
-import gruzpoerevozkiImage from '@/assets/images/gruzoperevozki.jpeg'
+import gidrobortImage from '../../assets/images/gidrobort.jpg'
+import gruzpoerevozkiImage from '../../assets/images/gruzoperevozki.jpeg'
 
 const services = [
   {
