@@ -79,8 +79,8 @@ onUnmounted(() => {
         </nav>
 
         <div :class="$style.contact">
-          <a href="tel:+37291234567">
-            <VTypography size="l" color="cultured"> +375 (29) 123-45-67 </VTypography>
+          <a href="tel:+375447768306">
+            <VTypography size="l" color="cultured"> +375 (44) 776-83-06 </VTypography>
           </a>
           <img src="../assets/images/phone.svg" alt="phone" />
         </div>
@@ -98,7 +98,7 @@ onUnmounted(() => {
           </div>
 
           <div :class="$style.order">
-            <VButton type="empty" @click="scrollTo('contacts')">ЗАКАЗАТЬ</VButton>
+            <VButton mode="empty" @click="scrollTo('contacts')">ЗАКАЗАТЬ</VButton>
           </div>
         </div>
       </div>

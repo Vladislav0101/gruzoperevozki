@@ -1,8 +1,12 @@
 <script setup>
 defineProps({
-  type: {
+  mode: {
     type: String,
     default: 'main'
+  },
+  isSubmitButton: {
+    type: Boolean,
+    default: false
   },
   animated: {
     type: Boolean,
@@ -13,7 +17,7 @@ defineProps({
 
 <template>
   <div :class="$style.buttonBox">
-    <button :class="[$style[type]]"><slot /></button>
+    <button :type="isSubmitButton ? 'submit' : 'button'" :class="[$style[mode]]"><slot /></button>
     <div :class="[$style.shadowBox, animated && $style.animated]"></div>
   </div>
 </template>

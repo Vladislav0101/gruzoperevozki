@@ -19,18 +19,41 @@ import Form from '@/components/Contacts/Form.vue'
         <Form />
 
         <div :class="$style.contacts">
-          <div :class="$style.phone">
-            <a href="tel:+375291234567">
-              <VTypography>+375 (29) 123-45-67</VTypography>
-            </a>
-          </div>
-          <div :class="$style.mail">
-            <a href="mailto:transports-logistics@mail.ru">
-              <VTypography>transports-logistics@mail.ru</VTypography>
+          <div :class="$style.contact">
+            <div :class="$style.contactImageBox">
+              <img src="../../assets/images/phone.svg" alt="phone" />
+            </div>
+            <a href="tel:+375447768306">
+              <VTypography size="xl">+375 (44) 776-83-06</VTypography>
             </a>
           </div>
 
-          <img src="../../assets/images/car.svg" alt="delivery" />
+          <div :class="$style.contact">
+            <div :class="$style.contactImageBox">
+              <img src="../../assets/images/phone.svg" alt="phone" />
+            </div>
+            <a href="mailto:transports-logistics@mail.ru">
+              <VTypography size="xl">transports-logistics@mail.ru</VTypography>
+            </a>
+          </div>
+
+          <div :class="$style.contact">
+            <div :class="$style.contactImageBox">
+              <img src="../../assets/images/phone.svg" alt="phone" />
+            </div>
+            <a href="mailto:transports-logistics@mail.ru">
+              <VTypography size="xl">
+                <a
+                  href="https://www.instagram.com/transports.logistics?igsh=ZWRpejJ4NXd6ZDZx"
+                  target="_blank"
+                >
+                  transports.logistics
+                </a>
+              </VTypography>
+            </a>
+          </div>
+
+          <img :class="$style.car" src="../../assets/images/car.svg" alt="delivery" />
         </div>
       </div>
     </div>
@@ -38,19 +61,17 @@ import Form from '@/components/Contacts/Form.vue'
 </template>
 
 <style lang="scss" module>
-@import url('@/assets/common.scss');
+@import '@/assets/common.scss';
 
 .contactsBox {
   position: relative;
 
   .container {
-    display: grid;
-    gap: 60px;
     padding-top: 80px;
     padding-bottom: 80px;
 
     .title {
-      margin: auto;
+      margin: 0 auto 60px;
       text-align: center;
       width: max-content;
 
@@ -61,16 +82,45 @@ import Form from '@/components/Contacts/Form.vue'
 
     .formBox {
       display: grid;
-      grid-template-columns: 50% 30%;
+      grid-template-columns: 50% 35%;
       justify-content: space-between;
       gap: 30px;
 
       .contacts {
-        img {
+        display: flex;
+        gap: 30px;
+        flex-direction: column;
+
+        .contact {
+          align-items: center;
+          display: flex;
+          gap: 15px;
+
+          .contactImageBox {
+            align-items: center;
+            border-radius: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: $color-wet-asphalt;
+            height: 40px;
+            width: 40px;
+
+            img {
+              width: 25px;
+            }
+          }
+
+          a:hover {
+            text-decoration: underline;
+          }
+        }
+
+        .car {
           bottom: 0;
           position: absolute;
           right: 0;
           width: 40%;
+          z-index: -1;
         }
       }
     }

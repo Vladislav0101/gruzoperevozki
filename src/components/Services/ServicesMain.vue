@@ -6,17 +6,20 @@ import ServiceCard from '@/components/Services/ServiceCard.vue'
 import GidrobortPrice from '@/components/Services/ServicePrice/Gidrobort.vue'
 import CountriesPrice from '@/components/Services/ServicePrice/Countries.vue'
 
+import gidrobortImage from '@/assets/images/gidrobort.jpg'
+import gruzpoerevozkiImage from '@/assets/images/gruzoperevozki.jpeg'
+
 const services = [
   {
     title: 'Гидроборт',
     description: `Гидроборт обеспечивает безопасную и быструю погрузку и разгрузку грузов различной тяжести.`,
-    imageSrc: '/src/assets/images/gidrobort.jpg',
+    imageSrc: gidrobortImage,
     priceComponent: GidrobortPrice
   },
   {
     title: `Грузоперевозки <br/> Беларусь - Россия`,
     description: `Мы предоставляем надежные и своевременные грузоперевозки по маршруту Минск-Москва.`,
-    imageSrc: '/src/assets/images/gruzoperevozki.jpeg',
+    imageSrc: gruzpoerevozkiImage,
     priceComponent: CountriesPrice
   }
 ]
