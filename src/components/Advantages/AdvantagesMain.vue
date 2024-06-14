@@ -44,7 +44,7 @@ const advantagesDict = [
 @import '@/assets/common.scss';
 
 .advantages {
-  padding: 100px 40px;
+  padding: 80px 40px;
 
   .title {
     margin: auto;
@@ -56,6 +56,17 @@ const advantagesDict = [
     gap: 50px;
     grid-template-columns: repeat(3, 1fr);
     margin-top: 80px;
+  }
+}
+
+@media screen and (max-width: $desktop-point) {
+  .advantages {
+    padding: 50px 20px;
+
+    .cardsBox {
+      gap: 30px;
+      margin-top: 50px;
+    }
   }
 }
 </style>

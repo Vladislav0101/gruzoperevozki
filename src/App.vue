@@ -30,8 +30,12 @@ main {
   .dividerAdvantagesContacts {
     background-color: $color-wet-asphalt;
     border: 0;
-    height: 1px;
+    height: 5px;
     width: 100%;
+
+    @media screen and (max-width: $desktop-point) {
+      height: 3px;
+    }
   }
 }
 </style>

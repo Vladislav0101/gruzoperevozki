@@ -102,4 +102,28 @@ onMounted(() => {
     }
   }
 }
+
+@media screen and (max-width: $desktop-point) {
+  .box {
+    gap: 15px;
+
+    .mainInfo {
+      gap: 15px;
+
+      input {
+        height: 40px;
+        padding: 5px 10px;
+        font-size: 16px;
+      }
+    }
+
+    .description {
+      textarea {
+        height: 150px;
+        padding: 5px 10px;
+        font-size: 16px;
+      }
+    }
+  }
+}
 </style>

@@ -53,7 +53,7 @@ defineProps({
     display: flex;
     gap: 40px;
     flex-direction: column;
-    padding: 30px 30px 30px 30px;
+    padding: 30px;
     justify-content: space-between;
 
     .text {
@@ -76,6 +76,23 @@ defineProps({
       object-fit: cover;
       height: 100%;
       width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: $desktop-point) {
+  .serviceCard {
+    .info {
+      gap: 20px;
+      padding: 15px;
+
+      .text {
+        gap: 5px;
+      }
+    }
+
+    .image {
+      height: 200px;
     }
   }
 }

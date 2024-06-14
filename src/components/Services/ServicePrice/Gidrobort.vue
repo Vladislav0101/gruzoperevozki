@@ -11,7 +11,14 @@ import VTypography from '@/components/Common/VTypography.vue'
 </template>
 
 <style lang="scss" module>
+@import '@/assets/common.scss';
+
 u {
   cursor: pointer;
+  transition: all .1s linear;
+
+  &:hover {
+    color: $color-wet-asphalt;
+  }
 }
 </style>

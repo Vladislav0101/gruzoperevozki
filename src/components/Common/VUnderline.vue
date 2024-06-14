@@ -21,6 +21,10 @@ $commonLineGap: 30px;
   height: 5px;
   position: relative;
   width: calc(100% + $commonLineGap);
+
+  @media screen and (max-width: $desktop-point) {
+    height: 3px;
+  }
 }
 
 .center {

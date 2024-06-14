@@ -8,12 +8,12 @@ const tariffs = [
   {
     price: '50 руб/час',
     detail: '*мин. время – 3 часа',
-    src: 'src/assets/images/clock-money.svg'
+    src: 'src/assets/icons/clock-money.svg'
   },
   {
     price: '1,3 руб/км',
     detail: '*за пределами МКАД',
-    src: 'src/assets/images/km-money.svg'
+    src: 'src/assets/icons/km-money.svg'
   }
 ]
 </script>
@@ -90,6 +90,33 @@ const tariffs = [
 
         u {
           color: $color-orange;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $desktop-point) {
+  .prices {
+    padding-bottom: 50px;
+    padding-top: 50px;
+
+    .container {
+      grid-template-columns: 30% 70%;
+
+      .info {
+        gap: 30px;
+
+        .tariffs .tariff {
+          gap: 10px;
+
+          img {
+            width: 75px;
+          }
+
+          .tariffInfo {
+            gap: 5px;
+          }
         }
       }
     }

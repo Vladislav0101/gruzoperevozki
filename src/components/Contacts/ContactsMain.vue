@@ -21,7 +21,7 @@ import Form from '@/components/Contacts/Form.vue'
         <div :class="$style.contacts">
           <div :class="$style.contact">
             <div :class="$style.contactImageBox">
-              <img src="../../assets/images/phone.svg" alt="phone" />
+              <img src="../../assets/icons/phone.svg" alt="phone" />
             </div>
             <a href="tel:+375447768306">
               <VTypography size="xl">+375 (44) 776-83-06</VTypography>
@@ -30,7 +30,7 @@ import Form from '@/components/Contacts/Form.vue'
 
           <div :class="$style.contact">
             <div :class="$style.contactImageBox">
-              <img src="../../assets/images/phone.svg" alt="phone" />
+              <img src="../../assets/icons/mail.svg" alt="mail" />
             </div>
             <a href="mailto:transports-logistics@mail.ru">
               <VTypography size="xl">transports-logistics@mail.ru</VTypography>
@@ -39,7 +39,7 @@ import Form from '@/components/Contacts/Form.vue'
 
           <div :class="$style.contact">
             <div :class="$style.contactImageBox">
-              <img src="../../assets/images/phone.svg" alt="phone" />
+              <img src="../../assets/icons/instagram.svg" alt="instagram" />
             </div>
             <a href="mailto:transports-logistics@mail.ru">
               <VTypography size="xl">
@@ -52,11 +52,11 @@ import Form from '@/components/Contacts/Form.vue'
               </VTypography>
             </a>
           </div>
-
-          <img :class="$style.car" src="../../assets/images/car.svg" alt="delivery" />
         </div>
       </div>
     </div>
+
+    <img :class="$style.car" src="../../assets/images/car.svg" alt="delivery" />
   </div>
 </template>
 
@@ -106,7 +106,7 @@ import Form from '@/components/Contacts/Form.vue'
             width: 40px;
 
             img {
-              width: 25px;
+              width: 62.5%;
             }
           }
 
@@ -114,13 +114,45 @@ import Form from '@/components/Contacts/Form.vue'
             text-decoration: underline;
           }
         }
+      }
+    }
+  }
 
-        .car {
-          bottom: 0;
-          position: absolute;
-          right: 0;
-          width: 40%;
-          z-index: -1;
+  .car {
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    width: 40%;
+    z-index: -1;
+  }
+}
+
+@media screen and (max-width: $desktop-point) {
+  .contactsBox .container {
+    padding-bottom: 50px;
+    padding-top: 50px;
+
+    .title {
+      margin-bottom: 40px;
+
+      .callUs {
+        margin-top: 5px;
+      }
+    }
+
+    .formBox {
+      grid-template-columns: 50% 45%;
+
+      .contacts {
+        gap: 20px;
+
+        .contact {
+          gap: 10px;
+
+          .contactImageBox {
+            height: 30px;
+            width: 30px;
+          }
         }
       }
     }

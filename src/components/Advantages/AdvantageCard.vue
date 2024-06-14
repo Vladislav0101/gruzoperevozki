@@ -38,4 +38,19 @@ import VTypography from '@/components/Common/VTypography.vue'
     padding: 30px 20px;
   }
 }
+
+@media screen and (max-width: $desktop-point) {
+  .advantageCard {
+    .corner {
+      border-width: 8px;
+      left: -15px;
+      top: -15px;
+    }
+
+    .content {
+      gap: 5px;
+      padding: 15px;
+    }
+  }
+}
 </style>

@@ -65,7 +65,7 @@ onUnmounted(() => {
     <div :class="$style.container">
       <header :class="[isSimplifiedHeader && $style.simplifiedHeader]" ref="header">
         <div :class="$style.logo">
-          <img src="../assets/images/logo.svg" alt="logo" />
+          <img src="../assets/icons/logo.svg" alt="logo" />
         </div>
 
         <nav>
@@ -82,7 +82,7 @@ onUnmounted(() => {
           <a href="tel:+375447768306">
             <VTypography size="l" color="cultured"> +375 (44) 776-83-06 </VTypography>
           </a>
-          <img src="../assets/images/phone.svg" alt="phone" />
+          <img src="../assets/icons/phone.svg" alt="phone" />
         </div>
       </header>
 
@@ -141,8 +141,9 @@ $header-height: 100px;
     transition: all 0.15s linear;
 
     .logo {
+      width: 250px;
       img {
-        width: 250px;
+        width: 100%;
       }
     }
 
@@ -196,6 +197,34 @@ $header-height: 100px;
       display: flex;
       align-items: end;
       position: relative;
+    }
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .headerBox {
+    header {
+      height: 60px;
+
+      .logo {
+        width: 20%;
+      }
+
+      nav ul li {
+        margin: 0 8px;
+      }
+
+      .contact {
+        gap: 5px;
+
+        img {
+          width: 15px;
+        }
+      }
+    }
+
+    .preview .title{
+      gap: 0;
     }
   }
 }

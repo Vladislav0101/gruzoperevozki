@@ -80,7 +80,6 @@ button:hover + .shadowBox {
   background-color: $color-orange;
   color: $color-cultured;
   padding: 10px 20px;
-  font-size: 20px;
   font-weight: 500;
 }
 
@@ -98,6 +97,17 @@ button:hover + .shadowBox {
 
   &:hover {
     text-decoration: underline;
+  }
+}
+
+@media screen and (max-width: $desktop-point) {
+  .main {
+    padding: 8px 14px;
+  }
+
+  .empty {
+    font-size: 16px;
+    padding: 8px 18px;
   }
 }
 </style>

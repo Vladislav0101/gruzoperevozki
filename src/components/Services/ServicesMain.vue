@@ -57,8 +57,8 @@ const services = [
 @import '@/assets/common.scss';
 
 .servicesBox {
-  padding-top: 80px;
   padding-bottom: 80px;
+  padding-top: 80px;
 
   .container {
     display: grid;
@@ -73,8 +73,8 @@ const services = [
 
       .description {
         line-height: 22px;
-        max-width: 300px;
         margin-top: 30px;
+        margin-right: 20px;
       }
     }
 
@@ -82,6 +82,27 @@ const services = [
       display: grid;
       gap: 60px;
       grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+@media screen and (max-width: $desktop-point) {
+  .servicesBox {
+    padding-bottom: 50px;
+    padding-top: 50px;
+
+    .container {
+      grid-template-columns: 30% 70%;
+
+      .titleBox .description {
+        margin-top: 15px;
+        margin-right: 15px;
+        line-height: normal;
+      }
+
+      .services {
+        gap: 30px;
+      }
     }
   }
 }
