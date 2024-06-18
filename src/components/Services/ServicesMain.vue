@@ -106,4 +106,19 @@ const services = [
     }
   }
 }
+
+@media screen and (max-width: $desktop-point) {
+  .servicesBox {
+    padding-bottom: 30px;
+    padding-top: 30px;
+
+    .container {
+      grid-template-columns: 1fr;
+
+      .titleBox {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}
 </style>

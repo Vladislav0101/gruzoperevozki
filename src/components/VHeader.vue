@@ -12,19 +12,23 @@ const isSimplifiedHeader = ref(false)
 const navButtons = [
   {
     label: 'УСЛУГИ',
-    id: 'services'
+    id: 'services',
+    mobileIcon: 'src/assets/icons/mobile-services.svg'
   },
   {
     label: 'ЦЕНЫ',
-    id: 'prices'
+    id: 'prices',
+    mobileIcon: 'src/assets/icons/mobile-prices.svg'
   },
   {
     label: 'ПРЕИМУЩЕСТВА',
-    id: 'advantages'
+    id: 'advantages',
+    mobileIcon: 'src/assets/icons/mobile-advantages.svg'
   },
   {
     label: 'КОНТАКТЫ',
-    id: 'contacts'
+    id: 'contacts',
+    mobileIcon: 'src/assets/icons/mobile-phone.svg'
   }
 ]
 
@@ -70,10 +74,12 @@ onUnmounted(() => {
 
         <nav>
           <ul>
-            <li v-for="button of navButtons" :key="button.id">
-              <VTypography size="l" color="cultured" @click="scrollTo(button.id)">
+            <li v-for="button of navButtons" :key="button.id" @click="scrollTo(button.id)">
+              <VTypography :class="$style.navButton" size="l" color="cultured">
                 {{ button.label }}
               </VTypography>
+
+              <img :src="button.mobileIcon" :alt="button.label" />
             </li>
           </ul>
         </nav>
@@ -161,6 +167,10 @@ $header-height: 100px;
           :hover {
             text-decoration: underline;
           }
+
+          img {
+            display: none;
+          }
         }
       }
     }
@@ -182,9 +192,11 @@ $header-height: 100px;
   }
 
   .preview {
-    display: grid;
+    // display: grid;
+    display: flex;
     justify-content: space-between;
     grid-template-columns: max-content auto;
+    padding: 60px 0;
 
     .title {
       display: flex;
@@ -201,13 +213,19 @@ $header-height: 100px;
   }
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: $desktop-point) {
   .headerBox {
     header {
       height: 60px;
+      padding-bottom: 10px;
+      padding-top: 10px;
 
       .logo {
         width: 20%;
+
+        img {
+          max-width: 160px;
+        }
       }
 
       nav ul li {
@@ -223,8 +241,45 @@ $header-height: 100px;
       }
     }
 
-    .preview .title{
+    .preview .title {
       gap: 0;
+    }
+  }
+}
+
+@media screen and (max-width: $tablet-point) {
+  .headerBox {
+    .container {
+      min-height: 40vh;
+    }
+
+    header {
+      .logo {
+        width: 30%;
+      }
+
+      nav ul li {
+        margin: 0 15px;
+
+        .navButton {
+          display: none;
+        }
+
+        img {
+          display: block;
+          width: 30px;
+          height: 30px;
+        }
+      }
+
+      .contact {
+        display: none;
+      }
+    }
+
+    .preview {
+      gap: 30px;
+      flex-direction: column;
     }
   }
 }

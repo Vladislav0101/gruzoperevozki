@@ -85,6 +85,10 @@ $tablet-font-ratio: 1;
   @media screen and (max-width: $desktop-point) {
     font-size: 20px;
   }
+
+  @media screen and (max-width: $tablet-point) {
+    font-size: 12px;
+  }
 }
 
 .xxl {
@@ -124,6 +128,10 @@ $tablet-font-ratio: 1;
 
   @media screen and (max-width: $desktop-point) {
     font-size: 36px;
+  }
+
+  @media screen and (max-width: $tablet-point) {
+    font-size: 32px;
   }
 }
 
