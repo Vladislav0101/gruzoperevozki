@@ -32,8 +32,8 @@ import Form from '@/components/Contacts/Form.vue'
             <div :class="$style.contactImageBox">
               <img src="../../assets/icons/mail.svg" alt="mail" />
             </div>
-            <a href="mailto:transports-logistics@mail.ru">
-              <VTypography size="xl">transports-logistics@mail.ru</VTypography>
+            <a href="mailto:m1t1n.mit@yandex.by">
+              <VTypography size="xl">m1t1n.mit@yandex.by</VTypography>
             </a>
           </div>
 
@@ -41,7 +41,7 @@ import Form from '@/components/Contacts/Form.vue'
             <div :class="$style.contactImageBox">
               <img src="../../assets/icons/instagram.svg" alt="instagram" />
             </div>
-            <a href="mailto:transports-logistics@mail.ru">
+            <div>
               <VTypography size="xl">
                 <a
                   href="https://www.instagram.com/transports.logistics?igsh=ZWRpejJ4NXd6ZDZx"
@@ -50,7 +50,7 @@ import Form from '@/components/Contacts/Form.vue'
                   transports.logistics
                 </a>
               </VTypography>
-            </a>
+            </div>
           </div>
         </div>
       </div>
