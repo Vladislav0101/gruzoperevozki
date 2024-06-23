@@ -26,7 +26,7 @@ const advantagesDict = [
 <template>
   <div id="advantages" :class="[$style.container, $style.advantages]">
     <div :class="$style.title">
-      <VTypography size="s50" weight="medium">ПОЧЕМУ МЫ?</VTypography>
+      <VTypography weight="medium">ПОЧЕМУ МЫ?</VTypography>
       <VUnderline />
     </div>
 
@@ -49,6 +49,10 @@ const advantagesDict = [
   .title {
     margin: auto;
     width: max-content;
+
+    p {
+      font-size: 50px;
+    }
   }
 
   .cardsBox {
@@ -67,6 +71,65 @@ const advantagesDict = [
       gap: 30px;
       margin-top: 50px;
     }
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .advantages {
+    .title p {
+      font-size: 40px;
+    }
+
+    .cardsBox {
+      gap: 20px;
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 40px;
+
+      div:nth-child(1) {
+        grid-area: 1/1/2/3;
+      }
+
+      div:nth-child(2) {
+        grid-area: 1/3/2/5;
+      }
+
+      div:nth-child(3) {
+        grid-area: 2/2/3/4;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $tablet-point) {
+  .advantages {
+    padding-bottom: 30px;
+    padding-top: 30px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .advantages {
+    .title p {
+      font-size: 30px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .advantages .cardsBox {
+    margin-top: 30px;
+
+    div:nth-child(1) {
+        grid-area: 1/1/2/5;
+      }
+
+      div:nth-child(2) {
+        grid-area: 2/1/3/5;
+      }
+
+      div:nth-child(3) {
+        grid-area: 3/1/4/5;
+      }
   }
 }
 </style>

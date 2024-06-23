@@ -1,5 +1,5 @@
 <script setup>
-import Header from '@/components/VHeader.vue'
+import Header from '@/components/Header/HeaderMain.vue'
 
 import Services from '@/components/Services/ServicesMain.vue'
 import Prices from '@/components/Prices/PricesMain.vue'

@@ -53,4 +53,50 @@ import VTypography from '@/components/Common/VTypography.vue'
     }
   }
 }
+
+@media screen and (max-width: 980px) {
+  .advantageCard {
+    .content {
+      p:nth-child(1) {
+        font-size: 44px;
+      }
+
+      p:nth-child(2) {
+        font-size: 20px;
+      }
+
+      p:nth-child(3) {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .advantageCard {
+    .corner {
+      border-width: 6px;
+      left: -12px;
+      top: -12px;
+    }
+
+    .content {
+      gap: 0;
+      padding: 10px;
+
+      p:nth-child(1) {
+        font-size: 36px;
+      }
+
+      p:nth-child(2) {
+        font-size: 18px;
+        margin-bottom: 5px;
+      }
+
+      p:nth-child(3) {
+        font-size: 14px;
+      }
+    }
+  }
+}
 </style>

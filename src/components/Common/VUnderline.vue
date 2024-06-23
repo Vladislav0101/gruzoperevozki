@@ -22,8 +22,10 @@ $commonLineGap: 30px;
   position: relative;
   width: calc(100% + $commonLineGap);
 
-  @media screen and (max-width: $desktop-point) {
+  @media screen and (max-width: 920px) {
+    $commonLineGap: 20px;
     height: 3px;
+    width: calc(100% + $commonLineGap);
   }
 }
 

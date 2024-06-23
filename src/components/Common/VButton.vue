@@ -81,6 +81,10 @@ button:hover + .shadowBox {
   color: $color-cultured;
   padding: 10px 20px;
   font-weight: 500;
+
+  @media screen and (max-width: 950px) {
+    padding: 8px 16px;
+  }
 }
 
 .main + .animated {
@@ -88,7 +92,6 @@ button:hover + .shadowBox {
 }
 
 .empty {
-  font-size: 24px;
   padding: 10px 20px;
   background-color: unset;
   border: 1px solid $color-orange;
@@ -98,16 +101,13 @@ button:hover + .shadowBox {
   &:hover {
     text-decoration: underline;
   }
-}
 
-@media screen and (max-width: $desktop-point) {
-  .main {
-    padding: 8px 14px;
+  @media screen and (max-width: 950px) {
+    padding: 8px 16px;
   }
 
-  .empty {
-    font-size: 16px;
-    padding: 8px 18px;
+  @media screen and (max-width: 768px) {
+    padding: 6px 12px;
   }
 }
 </style>

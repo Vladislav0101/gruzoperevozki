@@ -158,4 +158,84 @@ import Form from '@/components/Contacts/Form.vue'
     }
   }
 }
+
+@media screen and (max-width: 980px) {
+  .contactsBox .container {
+    .title {
+      .callUs {
+        font-size: 30px;
+      }
+
+      p:nth-child(1) {
+        font-size: 40px;
+      }
+    }
+
+    .formBox {
+      .contactImageBox {
+        height: 25px;
+        width: 25px;
+      }
+
+      p {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $tablet-point) {
+  .contactsBox .container {
+    .formBox {
+      grid-template-columns: 43% 48%;
+
+      p {
+        font-size: 18px;
+      }
+
+      .contacts .contact .contactImageBox {
+        height: 25px;
+        width: 25px;
+      }
+    }
+
+    .title {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .contactsBox .container {
+    padding-bottom: 70px;
+    padding-top: 30px;
+
+    .formBox {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+
+    .title {
+      .callUs {
+        font-size: 24px;
+      }
+
+      p:nth-child(1) {
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .contactsBox .container .title {
+    .callUs {
+      font-size: 22px;
+    }
+
+    p:nth-child(1) {
+      font-size: 26px;
+    }
+  }
+}
 </style>

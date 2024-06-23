@@ -32,7 +32,7 @@ defineProps({
       </div>
 
       <VButton>
-        <VTypography size="sm" color="cultured" @click="scrollTo('contacts')">ЗАКАЗАТЬ</VTypography>
+        <VTypography color="cultured" @click="scrollTo('contacts')">ЗАКАЗАТЬ</VTypography>
       </VButton>
     </div>
   </div>
@@ -60,6 +60,10 @@ defineProps({
       display: grid;
       gap: 10px;
     }
+
+    button p {
+      font-size: 18px;
+    }
   }
 
   .price {
@@ -80,7 +84,7 @@ defineProps({
   }
 }
 
-@media screen and (max-width: $desktop-point) {
+@media screen and (max-width: 1220px) {
   .serviceCard {
     .info {
       gap: 20px;
@@ -93,6 +97,39 @@ defineProps({
 
     .image {
       height: 200px;
+    }
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .serviceCard {
+    max-width: 400px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .serviceCard {
+    .info {
+      gap: 15px;
+
+      .text {
+        p:nth-child(1) {
+          font-size: 20px;
+        }
+
+        p:nth-child(2) {
+          font-size: 12px;
+        }
+
+        p:nth-child(3) {
+          font-size: 14px;
+          line-height: 1.3;
+        }
+      }
+
+      button p {
+        font-size: 16px;
+      }
     }
   }
 }

@@ -41,50 +41,26 @@ $tablet-font-ratio: 1;
 
 .xxs {
   font-size: 14px;
-
-  @media screen and (max-width: $desktop-point) {
-    font-size: 12px;
-  }
 }
 
 .m {
   font-size: 16px;
-
-  @media screen and (max-width: $desktop-point) {
-    font-size: 14px;
-  }
 }
 
 .sm {
   font-size: 18px;
-
-  @media screen and (max-width: $desktop-point) {
-    font-size: 14px;
-  }
 }
 
 .l {
   font-size: 20px;
-
-  @media screen and (max-width: $desktop-point) {
-    font-size: 14px;
-  }
 }
 
 .xl {
   font-size: 24px;
-
-  @media screen and (max-width: $desktop-point) {
-    font-size: 18px;
-  }
 }
 
 .s28 {
   font-size: 28px;
-
-  @media screen and (max-width: $desktop-point) {
-    font-size: 20px;
-  }
 
   @media screen and (max-width: $tablet-point) {
     font-size: 12px;
@@ -93,10 +69,6 @@ $tablet-font-ratio: 1;
 
 .xxl {
   font-size: 32px;
-
-  @media screen and (max-width: $desktop-point) {
-    font-size: 24px;
-  }
 }
 
 .xxxl {
@@ -105,10 +77,6 @@ $tablet-font-ratio: 1;
 
 .s40 {
   font-size: 40px;
-
-  @media screen and (max-width: $desktop-point) {
-    font-size: 28px;
-  }
 }
 
 .large {
@@ -117,18 +85,10 @@ $tablet-font-ratio: 1;
 
 .s50 {
   font-size: 50px;
-
-  @media screen and (max-width: $desktop-point) {
-    font-size: 30px;
-  }
 }
 
 .headline {
   font-size: 60px;
-
-  @media screen and (max-width: $desktop-point) {
-    font-size: 36px;
-  }
 
   @media screen and (max-width: $tablet-point) {
     font-size: 32px;

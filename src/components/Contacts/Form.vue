@@ -1,6 +1,5 @@
 <script setup>
-import { onMounted, ref } from 'vue'
-// import { SMTPClient } from 'emailjs'
+import { ref } from 'vue'
 
 import VButton from '@/components/Common/VButton.vue'
 
@@ -8,29 +7,51 @@ const name = ref()
 const phone = ref()
 const description = ref()
 
-onMounted(() => {
-  // const client = new SMTPClient({
-  //   user: 'gidrobort',
-  //   password: 'Zorka.design.030801',
-  //   host: 'smtp.gmail.com',
-  //   ssl: true
-  // })
-  // client.send(
-  //   {
-  //     text: 'i hope this work',
-  //     from: 'zorka.dsgn@gmail.com',
-  //     to: 'bogulevsckij@yandex.by',
-  //     subject: 'testing emailjs'
-  //   },
-  //   (err, message) => {
-  //     console.log(err || message)
-  //   }
-  // )
-})
+const resetForm = () => {
+  name.value = ''
+  phone.value = ''
+  description.value = ''
+}
+
+// Отправка данных на сервер
+function send(event, php) {
+  console.log('Отправка запроса')
+  event.preventDefault ? event.preventDefault() : (event.returnValue = false)
+  var req = new XMLHttpRequest()
+  req.open('POST', php, true)
+  req.onload = function () {
+    if (req.status >= 200 && req.status < 400) {
+      // ЗДЕСЬ УКАЗЫВАЕМ ДЕЙСТВИЯ В СЛУЧАЕ УСПЕХА ИЛИ НЕУДАЧИ
+      if (json.result == 'success') {
+        // Если сообщение отправлено
+        alert('Сообщение отправлено')
+      } else {
+        // Если произошла ошибка
+        alert('Ошибка. Сообщение не отправлено')
+      }
+      // Если не удалось связаться с php файлом
+    } else {
+      alert('Ошибка сервера. Номер: ' + req.status)
+    }
+  }
+
+  // Если не удалось отправить запрос. Стоит блок на хостинге
+  req.onerror = function () {
+    alert('Ошибка отправки запроса')
+  }
+  req.send(new FormData(event.target))
+
+  resetForm()
+}
 </script>
 
 <template>
-  <form action="../../php/mail.php" method="post" :class="$style.box">
+  <form
+    enctype="multipart/form-data"
+    method="post"
+    @submit="send($event, '../../php/mail.php')"
+    :class="$style.box"
+  >
     <div :class="$style.mainInfo">
       <input v-model="name" name="name" type="text" placeholder="Имя" />
       <input v-model="phone" name="phone" type="text" placeholder="Номер телефона" />
@@ -47,7 +68,7 @@ onMounted(() => {
     </div>
 
     <div>
-      <VButton is-submit-button>Перезвоните мне</VButton>
+      <VButton :class="$style.buttonBox" is-submit-button>Перезвоните мне</VButton>
     </div>
   </form>
 </template>
@@ -101,6 +122,10 @@ onMounted(() => {
       }
     }
   }
+
+  button {
+    font-size: 24px;
+  }
 }
 
 @media screen and (max-width: $desktop-point) {
@@ -113,7 +138,6 @@ onMounted(() => {
       input {
         height: 40px;
         padding: 5px 10px;
-        font-size: 16px;
       }
     }
 
@@ -121,8 +145,67 @@ onMounted(() => {
       textarea {
         height: 150px;
         padding: 5px 10px;
+      }
+    }
+
+    button {
+      font-size: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .box {
+    .mainInfo input {
+      font-size: 16px;
+    }
+
+    .description {
+      textarea {
         font-size: 16px;
       }
+    }
+
+    button {
+      font-size: 18px;
+    }
+  }
+}
+
+@media screen and (max-width: $tablet-point) {
+  .box {
+    .mainInfo {
+      grid-template-columns: 1fr;
+    }
+
+    .buttonBox {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .box {
+    .mainInfo {
+      grid-template-columns: 1fr 1fr;
+
+      input {
+        font-size: 14px;
+      }
+    }
+
+    .description {
+      textarea {
+        font-size: 14px;
+      }
+    }
+
+    .buttonBox {
+      width: max-content;
+    }
+
+    button {
+      font-size: 16px;
     }
   }
 }

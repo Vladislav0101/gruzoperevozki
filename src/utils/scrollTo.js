@@ -1,4 +1,4 @@
 export default (id) => {
-  const scrollToY = document.getElementById(id).offsetTop - 100
+  const scrollToY = document.getElementById(id).offsetTop
   window.scrollTo({ top: scrollToY, behavior: 'smooth' })
 }

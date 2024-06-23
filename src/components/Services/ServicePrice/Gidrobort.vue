@@ -6,7 +6,7 @@ import VTypography from '@/components/Common/VTypography.vue'
 
 <template>
   <VTypography size="xxs" color="orange">
-    <u @click="scrollTo('contacts')">Стоимость</u>
+    <u @click="scrollTo('prices')">Стоимость</u>
   </VTypography>
 </template>
 

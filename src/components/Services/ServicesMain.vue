@@ -30,7 +30,7 @@ const services = [
     <div :class="$style.container">
       <div :class="$style.titleBox">
         <div :class="$style.title">
-          <VTypography size="s50" weight="medium">УСЛУГИ</VTypography>
+          <VTypography weight="medium">УСЛУГИ</VTypography>
           <VUnderline :centering="'left'" />
         </div>
 
@@ -69,6 +69,10 @@ const services = [
 
       .title {
         width: max-content;
+
+        p {
+          font-size: 50px;
+        }
       }
 
       .description {
@@ -79,45 +83,86 @@ const services = [
     }
 
     .services {
-      display: grid;
+      display: flex;
       gap: 60px;
-      grid-template-columns: 1fr 1fr;
     }
   }
 }
 
-@media screen and (max-width: $desktop-point) {
+@media screen and (max-width: 1220px) {
+  .servicesBox .container .services {
+    gap: 30px;
+    justify-content: space-evenly;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .servicesBox .container .titleBox .description {
+    margin-top: 15px;
+  }
+}
+
+@media screen and (max-width: 980px) {
   .servicesBox {
     padding-bottom: 50px;
     padding-top: 50px;
 
     .container {
-      grid-template-columns: 30% 70%;
+      grid-template-columns: none;
+      .titleBox {
+        display: flex;
+        gap: 20%;
+        margin-bottom: 30px;
 
-      .titleBox .description {
-        margin-top: 15px;
-        margin-right: 15px;
-        line-height: normal;
-      }
+        .title p {
+          font-size: 40px;
+        }
 
-      .services {
-        gap: 30px;
+        .description {
+          margin-right: 0px;
+          margin-top: 0px;
+        }
       }
     }
   }
 }
 
-@media screen and (max-width: $desktop-point) {
+@media screen and (max-width: $tablet-point) {
   .servicesBox {
     padding-bottom: 30px;
     padding-top: 30px;
 
-    .container {
-      grid-template-columns: 1fr;
+    .container .titleBox {
+      gap: 10px;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+  }
+}
 
-      .titleBox {
-        margin-bottom: 30px;
+@media screen and (max-width: 600px) {
+  .servicesBox {
+    .container .titleBox {
+      .title {
+        p {
+          font-size: 30px;
+        }
       }
+
+      .description {
+        font-size: 14px;
+        line-height: 1.5;
+        max-width: 500px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .servicesBox .container {
+    .services {
+      align-items: center;
+      flex-direction: column;
     }
   }
 }
